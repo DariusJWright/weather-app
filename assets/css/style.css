@@ -9,8 +9,12 @@ header {
     align-items: center;
 }
 
+.list {
+    margin-bottom: 10px;
+}
+
 #current {
-    
+    margin: 10px;
 }
 
 #five-day {
@@ -23,4 +27,25 @@ li {
 
 .city-date {
     display: inline-block;
+}
+
+.uv-green {
+    background-color: blue;
+    color: white;
+    border-radius: 4px;
+    padding: 5px;
+}
+
+.uv-yellow {
+    background-color: #faee11;
+    color: black;
+    border-radius: 4px;
+    padding: 5px;
+}
+
+.uv-red {
+    background-color: red;
+    color: white;
+    border-radius: 4px;
+    padding: 5px;
 }

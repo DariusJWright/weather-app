@@ -8,6 +8,8 @@ var searchHistory = document.querySelector("#cities");
 var current = document.querySelector("#current");
 // variable linking to the five-day div
 var fiveDay = document.querySelector("#five-day");
+// variable linking to the forecast div
+var forecast = document.querySelector("#forecast");
 
 var buttonHandler = function (event) {
     event.preventDefault();
@@ -27,7 +29,7 @@ var historyEl = function (search) {
     
     var cityEl = document.createElement("li");
     cityEl.className = "list-group-item";
-    cityEl.textContent = search;
+    cityEl.textContent = search.charAt(0).toUpperCase() + search.slice(1);
 
     searchHistory.appendChild(cityEl);
     getCurrentWeather(search);
@@ -123,11 +125,34 @@ var getUv = function (weather) {
 
 var displayUv = function (data) {
     var uv = document.createElement("p");
-    uv.textContent = "UV Index: " + data.value;
+    var uvSpan = document.createElement("span");
+    
+    if (data.value < 3) {
+        uvSpan.className = "uv-green"
+    }
+    else if (data.value < 8) {
+        uvSpan.className = "uv-yellow";
+    }
+    else {
+        uvSpan.className = "uv-red";
+    }
+    uvSpan.textContent = data.value;
+    uv.textContent = "UV Index: ";
+    uv.appendChild(uvSpan);
+    
     current.appendChild(uv);
 }
 
 var displayFiveDay = function (weather) {
+    forecast.textContent = "";
+    var forecastHeader = document.createElement("h3");
+    forecastHeader.textContent = "Five Day Forecast:";
+    forecast.appendChild(forecastHeader);
+
+    var day = Math.floor((new Date()).getTime()/1000);
+    console.log(day);
+    console.log(typeof(day));
+    // for (var i = 0; i <)
     
 }
 
@@ -138,4 +163,5 @@ searchCity.addEventListener("keyup", function (event) {
         button.click();
     }
 });
-searchHistory.addEventListener("click", historySearch)
+searchHistory.addEventListener("click", historySearch);
+console.log(moment().add(1, "day").format("YYYY-MM-DD HH:mm:ss"));
