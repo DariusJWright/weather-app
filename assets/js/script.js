@@ -59,25 +59,30 @@ var getFiveDay = function (search) {
 
     // request info
     fetch(fiveDayUrl).then(function (response) {
-        response.json().then(function (data) {
-            //displayFiveDay(data, search);
-        })
+        if (response.ok) {
+            response.json().then(function (data) {
+                //displayFiveDay(data, search);
+            })
+        }
+        else {
+            alert("You have encountered error:" + response.statusText);
+        }    
     })
 }
 
 var displayCurrentWeather = function (weather, search) {
     var current = document.querySelector("#current");
+    //var cityDate = document.querySelector("#city-date");
+    current.textContent = "";
     var cityName = document.createElement("h3");
     var weatherIcon = document.createElement("img");
     var temp = document.createElement("p");
     var humid = document.createElement("p");
     var wind = document.createElement("p");
     var uv = document.createElement("p");
-
-    console.log(weather.icon);
     
-    cityName.textContent = weather.name + " (" + moment().format("MM/DD/YYYY") +")";
-    weatherIcon.setAttribute("src", "http://openweathermap.org/img/w/.png");
+    cityName.textContent = weather.name + " (" + moment().format("MM/DD/YYYY") +")" + weatherIcon;
+    weatherIcon.setAttribute("src", "http://openweathermap.org/img/w/" + weather.weather[0].icon + ".png");
     temp.textContent = "Temperature: " + weather.main.temp + " °F";
     humid.textContent = "Humidity: " + weather.main.humidity + "%";
     wind.textContent = "Wind speed: " + weather.wind.speed + " MPH";
@@ -90,6 +95,8 @@ var displayCurrentWeather = function (weather, search) {
     current.appendChild(wind);
     current.appendChild(uv);
 }
+
+var displayFiveDay = function (weather, search)
 
 button.addEventListener("click", buttonHandler)
 searchCity.addEventListener("keyup", function (event) {
