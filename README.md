@@ -11,5 +11,5 @@ Find weather info by city
 ## Link: https://zero758.github.io/weather-app/
 
 ## Screenshot
-![screenshot](./assets/images/screenshot.png)
+![screenshot ](https://user-images.githubusercontent.com/64335245/85955624-8399d400-b945-11ea-9e29-7a737fd701e9.png)
 
