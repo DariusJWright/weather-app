@@ -17,10 +17,6 @@ header {
     margin: 10px;
 }
 
-#five-day {
-    background-color: lightskyblue;
-}
-
 li {
     cursor: pointer;
 }
@@ -48,4 +44,8 @@ li {
     color: white;
     border-radius: 4px;
     padding: 5px;
+}
+
+.day h5 {
+    font-weight: bold;
 }
