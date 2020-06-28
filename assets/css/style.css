@@ -15,14 +15,19 @@ header {
 
 #current {
     margin: 10px;
+    border-radius: .25rem;
 }
 
 li {
     cursor: pointer;
 }
 
-.city-date {
-    display: inline-block;
+.current-header {
+    margin-top: 15px;
+}
+
+.current-header h3 {
+    padding-left: 13px;
 }
 
 .uv-green {
@@ -35,7 +40,7 @@ li {
 .uv-yellow {
     background-color: #faee11;
     color: black;
-    border-radius: 4px;
+    border-radius: .25rem;
     padding: 5px;
 }
 
@@ -48,4 +53,17 @@ li {
 
 .day h5 {
     font-weight: bold;
+}
+
+#five-day {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+#five-day div {
+    background-color: #007bff;
+    color: white;
+    border-radius: .25rem;
+    padding: 10px;
 }

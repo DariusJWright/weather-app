@@ -79,9 +79,9 @@ var getFiveDay = function (search) {
 }
 
 var displayCurrentWeather = function (weather) {
-    
-    //var cityDate = document.querySelector("#city-date");
     current.textContent = "";
+    var header = document.createElement("div");
+    header.classList = "row current-header";
     var cityName = document.createElement("h3");
     var weatherIcon = document.createElement("img");
     var temp = document.createElement("p");
@@ -89,7 +89,7 @@ var displayCurrentWeather = function (weather) {
     var wind = document.createElement("p");
     
     
-    cityName.textContent = weather.name + " (" + moment().format("MM/DD/YYYY") +")" + weatherIcon;
+    cityName.textContent = weather.name + " (" + moment().format("MM/DD/YYYY") +")";
     weatherIcon.setAttribute("src", "http://openweathermap.org/img/w/" + weather.weather[0].icon + ".png");
     temp.textContent = "Temperature: " + weather.main.temp + " °F";
     humid.textContent = "Humidity: " + weather.main.humidity + "%";
@@ -97,11 +97,13 @@ var displayCurrentWeather = function (weather) {
     cityName.textContent = weather.name + " (" + moment().format("MM/DD/YYYY") +")";
     
 
-    current.appendChild(cityName);
-    current.appendChild(weatherIcon);
+    header.appendChild(cityName);
+    header.appendChild(weatherIcon);
+    current.appendChild(header);
     current.appendChild(temp);
     current.appendChild(humid);
     current.appendChild(wind);
+
     getUv(weather);
     
 }
@@ -164,7 +166,7 @@ var displayFiveDay = function (weather) {
     
 
     var temp1 = document.createElement("p");
-    temp1.textContent = "Temp: " + weather.list[2].main.temp;
+    temp1.textContent = "Temp: " + weather.list[2].main.temp + "°F";
     day1.appendChild(temp1);
 
     var humidity1 = document.createElement("p");
@@ -186,7 +188,7 @@ var displayFiveDay = function (weather) {
     
 
     var temp2 = document.createElement("p");
-    temp2.textContent = "Temp: " + weather.list[10].main.temp;
+    temp2.textContent = "Temp: " + weather.list[10].main.temp + "°F";
     day2.appendChild(temp2);
 
     var humidity2 = document.createElement("p");
@@ -208,7 +210,7 @@ var displayFiveDay = function (weather) {
     
 
     var temp3 = document.createElement("p");
-    temp3.textContent = "Temp: " + weather.list[18].main.temp;
+    temp3.textContent = "Temp: " + weather.list[18].main.temp + "°F";
     day3.appendChild(temp3);
 
     var humidity3 = document.createElement("p");
@@ -230,7 +232,7 @@ var displayFiveDay = function (weather) {
     
 
     var temp4 = document.createElement("p");
-    temp4.textContent = "Temp: " + weather.list[26].main.temp;
+    temp4.textContent = "Temp: " + weather.list[26].main.temp + "°F";
     day4.appendChild(temp4);
 
     var humidity4 = document.createElement("p");
@@ -252,7 +254,7 @@ var displayFiveDay = function (weather) {
     
 
     var temp5 = document.createElement("p");
-    temp5.textContent = "Temp: " + weather.list[34].main.temp;
+    temp5.textContent = "Temp: " + weather.list[34].main.temp + "°F";
     day5.appendChild(temp5);
 
     var humidity5 = document.createElement("p");
