@@ -61,7 +61,7 @@ var historySearch = function (event) {
 
 var getCurrentWeather = function (search) {
     // insert user city into url
-    var currentUrl = "http://api.openweathermap.org/data/2.5/weather?q=" + search + "&units=imperial&appid=76efa2b5af9a25d1a7e0ece204e591e4";
+    var currentUrl = "https://api.openweathermap.org/data/2.5/weather?q=" + search + "&units=imperial&appid=76efa2b5af9a25d1a7e0ece204e591e4";
     
     // request info
     fetch(currentUrl).then(function (response) {
@@ -82,7 +82,7 @@ var getCurrentWeather = function (search) {
 
 var getFiveDay = function (search) {
     // insert city into url
-    var fiveDayUrl = "http://api.openweathermap.org/data/2.5/forecast?q=" + search + "&units=imperial&appid=76efa2b5af9a25d1a7e0ece204e591e4";
+    var fiveDayUrl = "https://api.openweathermap.org/data/2.5/forecast?q=" + search + "&units=imperial&appid=76efa2b5af9a25d1a7e0ece204e591e4";
 
     // request info
     fetch(fiveDayUrl).then(function (response) {
@@ -106,7 +106,7 @@ var displayCurrentWeather = function (weather) {
     
     
     cityName.textContent = weather.name + " (" + moment().format("MM/DD/YYYY") +")";
-    weatherIcon.setAttribute("src", "http://openweathermap.org/img/w/" + weather.weather[0].icon + ".png");
+    weatherIcon.setAttribute("src", "https://openweathermap.org/img/w/" + weather.weather[0].icon + ".png");
     temp.textContent = "Temperature: " + weather.main.temp + " °F";
     humid.textContent = "Humidity: " + weather.main.humidity + "%";
     wind.textContent = "Wind speed: " + weather.wind.speed + " MPH";
@@ -127,7 +127,7 @@ var displayCurrentWeather = function (weather) {
 var getUv = function (weather) {
     var lon = weather.coord.lon;
     var lat = weather.coord.lat;
-    var uvUrl = "http://api.openweathermap.org/data/2.5/uvi?appid=76efa2b5af9a25d1a7e0ece204e591e4&lat=" + lat + "&" + "lon=" + lon;
+    var uvUrl = "https://api.openweathermap.org/data/2.5/uvi?appid=76efa2b5af9a25d1a7e0ece204e591e4&lat=" + lat + "&" + "lon=" + lon;
     
     return fetch(uvUrl).then(function (response) {
         if (response.ok) {
@@ -176,7 +176,7 @@ var displayFiveDay = function (weather) {
     day1.appendChild(date1);
 
     var dayIcon1 = document.createElement("img");
-    dayIcon1.setAttribute("src", "http://openweathermap.org/img/w/" + weather.list[2].weather[0].icon + ".png");
+    dayIcon1.setAttribute("src", "https://openweathermap.org/img/w/" + weather.list[2].weather[0].icon + ".png");
     day1.appendChild(dayIcon1);
     
 
@@ -198,7 +198,7 @@ var displayFiveDay = function (weather) {
     
 
     var dayIcon2 = document.createElement("img");
-    dayIcon2.setAttribute("src", "http://openweathermap.org/img/w/" + weather.list[10].weather[0].icon + ".png");
+    dayIcon2.setAttribute("src", "https://openweathermap.org/img/w/" + weather.list[10].weather[0].icon + ".png");
     day2.appendChild(dayIcon2);
     
 
@@ -220,7 +220,7 @@ var displayFiveDay = function (weather) {
     
 
     var dayIcon3 = document.createElement("img");
-    dayIcon3.setAttribute("src", "http://openweathermap.org/img/w/" + weather.list[18].weather[0].icon + ".png");
+    dayIcon3.setAttribute("src", "https://openweathermap.org/img/w/" + weather.list[18].weather[0].icon + ".png");
     day3.appendChild(dayIcon3);
     
 
@@ -242,7 +242,7 @@ var displayFiveDay = function (weather) {
     
 
     var dayIcon4 = document.createElement("img");
-    dayIcon4.setAttribute("src", "http://openweathermap.org/img/w/" + weather.list[26].weather[0].icon + ".png");
+    dayIcon4.setAttribute("src", "https://openweathermap.org/img/w/" + weather.list[26].weather[0].icon + ".png");
     day4.appendChild(dayIcon4);
     
 
@@ -264,7 +264,7 @@ var displayFiveDay = function (weather) {
     
 
     var dayIcon5 = document.createElement("img");
-    dayIcon5.setAttribute("src", "http://openweathermap.org/img/w/" + weather.list[34].weather[0].icon + ".png");
+    dayIcon5.setAttribute("src", "https://openweathermap.org/img/w/" + weather.list[34].weather[0].icon + ".png");
     day5.appendChild(dayIcon5);
     
 
