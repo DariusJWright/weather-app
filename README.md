@@ -8,5 +8,8 @@ Find weather info by city
 * CSS
 * JS
 
-## Link: 
+## Link: https://zero758.github.io/weather-app/
+
+## Screenshot
+![screenshot](./assets/images/screenshot.png)
 
