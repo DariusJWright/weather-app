@@ -1,8 +1,15 @@
 # Weather Dashboard
 
----
+## Purpose
+Find weather info by city
 
-## Search for a city, and get the current weather as well as a 5 day forecast
+## Built with
+* HTML
+* CSS
+* JS
 
-### Link: 
+## Link: https://zero758.github.io/weather-app/
+
+## Screenshot
+![screenshot](./assets/images/screenshot.png)
 
