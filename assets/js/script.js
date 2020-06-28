@@ -10,6 +10,11 @@ var current = document.querySelector("#current");
 var fiveDay = document.querySelector("#five-day");
 // variable linking to the forecast div
 var forecast = document.querySelector("#forecast");
+var historyStorage = JSON.parse(localStorage.getItem("cities")) || [];
+
+window.onload = function() {
+    searchCity.focus();
+}
 
 var buttonHandler = function (event) {
     event.preventDefault();
@@ -23,13 +28,27 @@ var buttonHandler = function (event) {
     else {
         alert("Please Enter a City");
     }
+    console.log(historyStorage);
+    historyStorage.push(city);
+    localStorage.setItem("cities", JSON.stringify(historyStorage));
+}
+
+var loadHistory = function () {
+    var data = JSON.parse(localStorage.getItem("cities"));
+    for (var i = 0; i < data.length; i++) {
+        var cityEl = document.createElement("li");
+        cityEl.className = "list-group-item";
+        cityEl.textContent = data[i].toUpperCase();
+        searchHistory.appendChild(cityEl);
+    }
+    getCurrentWeather(data[0]);
 }
 
 var historyEl = function (search) {
     
     var cityEl = document.createElement("li");
     cityEl.className = "list-group-item";
-    cityEl.textContent = search.charAt(0).toUpperCase() + search.slice(1);
+    cityEl.textContent = search.toUpperCase();
 
     searchHistory.appendChild(cityEl);
     getCurrentWeather(search);
@@ -52,7 +71,7 @@ var getCurrentWeather = function (search) {
             });
         }
         else {
-            alert("You have encountered error:" + response.statusText);
+            alert("Error:" + response.statusText);
         }
     })
 
@@ -72,9 +91,6 @@ var getFiveDay = function (search) {
                 displayFiveDay(data);
             })
         }
-        else {
-            alert("You have encountered error:" + response.statusText);
-        }    
     })
 }
 
@@ -158,7 +174,6 @@ var displayFiveDay = function (weather) {
     var date1 = document.createElement("h5");
     date1.textContent = moment().add(1, "day").format("MM/DD/YYYY");
     day1.appendChild(date1);
-    console.log(weather.list[2].weather[0].icon);
 
     var dayIcon1 = document.createElement("img");
     dayIcon1.setAttribute("src", "http://openweathermap.org/img/w/" + weather.list[2].weather[0].icon + ".png");
@@ -271,3 +286,4 @@ searchCity.addEventListener("keyup", function (event) {
     }
 });
 searchHistory.addEventListener("click", historySearch);
+loadHistory();
